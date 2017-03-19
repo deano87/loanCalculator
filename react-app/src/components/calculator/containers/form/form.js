@@ -10,6 +10,7 @@ import {
   Glyphicon,
   Panel
 } from 'react-bootstrap';
+import './form.sass'
 
 class CalculatorForm extends Component {
 
@@ -33,7 +34,7 @@ class CalculatorForm extends Component {
         let _this = this;
 
         return (
-            <div>
+            <div className="formContainer">
                 <legend>Student loan calculator</legend>
 
                 <FormGroup controlId="fcJobType">
