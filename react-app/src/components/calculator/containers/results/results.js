@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Line } from 'react-chartjs';
-import './graph.sass'
+import './results.sass'
 
 function rand(min, max, num) {
           var rtn = [];
@@ -15,16 +15,6 @@ function rand(min, max, num) {
 var chartData = {
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [
-                {
-                    label: "My First dataset",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: rand(32, 100, 7)
-                },
                 {
                     label: "My Second dataset",
                     fillColor: "rgba(151,187,205,0.2)",
@@ -47,8 +37,33 @@ class CalculatorGraph extends Component {
 
     render() {
         return (
-            <div className="graphContainer">
-              <Line data={chartData}  width="700" height="550"/>
+            <div className="resultsContainer">
+              <p>
+                <h4>Your results</h4>
+                <div className="row">
+                  <div className="col-md-6">
+                    <h3>21 <small>Years</small></h3>
+                    To fully repay the loan
+                  </div>
+                  <div className="col-md-6">
+                    <h3>£40,630</h3>
+                    Debt after graduation
+                  </div>
+                  <div className="col-md-6">
+                    <h3>£60,320</h3>
+                    Total amount to be paid
+                  </div>
+                  <div className="col-md-6">
+                    <h3>£35,000</h3>
+                    Estimated first salary
+                  </div>
+                  <div className="col-md-6">
+                    <h3>£200</h3>
+                    Average monthly returns
+                  </div>
+                </div>
+              </p>
+              <Line data={chartData}  width="600" height="220"/>
             </div>
         );
     }

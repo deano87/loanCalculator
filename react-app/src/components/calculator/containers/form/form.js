@@ -37,6 +37,11 @@ class CalculatorForm extends Component {
             <div className="formContainer">
                 <legend>Student loan calculator</legend>
 
+                <p>
+                  This student loan repayment calculator was built to you an <i>indication</i> of how much you might expect to pay back and over what period of time.
+                </p>
+                <hr />
+
                 <FormGroup controlId="fcJobType">
                   <ControlLabel>Job Type</ControlLabel>
                   <FormControl componentClass="select" placeholder="select">

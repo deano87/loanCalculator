@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CalcForm from './containers/form/form';
-import CalcGraph from './containers/graph/graph';
+import CalcResults from './containers/results/results';
 
 export default class Calculator extends Component {
   render() {
@@ -10,7 +10,7 @@ export default class Calculator extends Component {
           <CalcForm />
         </div>
         <div className="row col-md-7">
-          <CalcGraph />
+          <CalcResults />
         </div>
       </div>
     );
