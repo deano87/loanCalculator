@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { getCalcSettings } from '../../../../actions/calc';
 import {
-  FormGroup,
-  ControlLabel,
-  FormControl,
-  ButtonToolbar,
-  Button,
-  Glyphicon,
+  FormGroup,    ControlLabel,
+  FormControl,  ButtonToolbar,
+  Button,       Glyphicon,
   Panel
 } from 'react-bootstrap';
 import './form.sass'
@@ -19,6 +17,8 @@ class CalculatorForm extends Component {
         this.state = {
           open: false
         }
+
+        props.getCalcSettings();
     }
 
     render() {
@@ -113,12 +113,12 @@ class CalculatorForm extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({  }, dispatch);
+    return bindActionCreators({ getCalcSettings }, dispatch);
 }
 
 function mapStateToProps(state) {
     return {
-
+        calcSettings: state.calcSettings
     };
 }
 

@@ -38,32 +38,32 @@ class CalculatorGraph extends Component {
     render() {
         return (
             <div className="resultsContainer">
-              <p>
+              <section>
                 <h4>Your results</h4>
                 <div className="row">
-                  <div className="col-md-6">
+                  <div className="col-md-6 col-sm-6">
                     <h3>21 <small>Years</small></h3>
                     To fully repay the loan
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-6 col-sm-6">
                     <h3>£40,630</h3>
                     Debt after graduation
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-6 col-sm-6">
                     <h3>£60,320</h3>
                     Total amount to be paid
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-6 col-sm-6">
                     <h3>£35,000</h3>
                     Estimated first salary
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-6 col-sm-6">
                     <h3>£200</h3>
                     Average monthly returns
                   </div>
                 </div>
-              </p>
-              <Line data={chartData}  width="600" height="220"/>
+              </section>
+              <Line data={chartData}  width="600" height="220" style={{ 'maxWidth': '100%' }} />
             </div>
         );
     }

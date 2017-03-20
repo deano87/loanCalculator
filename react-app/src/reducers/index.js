@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { calculatorFormJobTypes } from './calculatorForm'
+import { calcSettings } from './calc'
 
 const rootReducer = combineReducers({
-  calculatorFormJobTypes
+  calcSettings
 });
 
 export default rootReducer;

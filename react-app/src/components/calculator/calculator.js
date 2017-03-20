@@ -9,7 +9,7 @@ export default class Calculator extends Component {
         <div className="row col-md-5">
           <CalcForm />
         </div>
-        <div className="row col-md-7">
+        <div className="row col-md-offset-1 col-md-6">
           <CalcResults />
         </div>
       </div>
