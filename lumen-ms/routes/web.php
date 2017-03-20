@@ -12,5 +12,10 @@
 */
 
 $app->get('/', function () use ($app) {
-    return $app->version();
+    return ['welcome'];
+});
+
+$app->group(['prefix' => 'api/v1'], function () use ($app) {
+  $app->get('/loan-calc', 'LoanCalcController@index');
+  $app->post('/loan-calc', 'LoanCalcController@calc');
 });
