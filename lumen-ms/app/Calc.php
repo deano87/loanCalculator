@@ -10,21 +10,21 @@ class Calc extends Model {
       [
         'type' => 'Lawyer',
         'salary' => [
-          'growth' => 1.025,
+          'growth' => 2.5,
           'start' => 35000,
         ]
       ],
       [
         'type' => 'Teacher',
         'salary' => [
-          'growth' => 1.02,
+          'growth' => 2,
           'start' => 25000,
         ]
       ],
       [
         'type' => 'Other',
         'salary' => [
-          'growth' => 1.015,
+          'growth' => 1.5,
           'start' => 27000,
         ]
       ],
@@ -33,7 +33,7 @@ class Calc extends Model {
 
   public function getBasicSettings() {
     return [
-      'inflation' => 0.1,
+      'inflation' => 2.8,
       'womenSalaryRatio' => 0.9,
       'jobTypes' => $this->getJobs()
     ];

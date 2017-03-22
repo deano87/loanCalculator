@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import { calcSettings } from './calc'
+import { calcSettings, calcResults } from './calc'
 
 const rootReducer = combineReducers({
-  calcSettings
+  calcSettings,
+  calcResults
 });
 
 export default rootReducer;

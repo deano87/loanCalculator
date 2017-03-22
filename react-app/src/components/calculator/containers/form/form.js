@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getCalcSettings, makeCalculation } from '../../../../actions/calc';
+import { getCalcSettings } from '../../../../actions/calc';
 import {
   FormGroup,    ControlLabel,
   FormControl,  ButtonToolbar,
@@ -346,12 +346,12 @@ class CalculatorForm extends Component {
 
       let form = document.querySelector('#calc-form');
       let hash = serialize(form, { hash: true });
-      this.props.makeCalculation(hash);
+      this.props.parentMakeCalculation(hash);
     }
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ getCalcSettings, makeCalculation }, dispatch);
+    return bindActionCreators({ getCalcSettings }, dispatch);
 }
 
 function mapStateToProps(state) {

@@ -1,4 +1,4 @@
-import { CALC_GET_SETTINGS } from '../actions/calc'
+import { CALC_GET_SETTINGS, CALC_RESULTS } from '../actions/calc'
 
 export function calcSettings(state = [], action) {
     switch (action.type) {
