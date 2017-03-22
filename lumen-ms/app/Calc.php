@@ -2,40 +2,32 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Calc extends Model {
-  public function getJobs() {
-    return [
-      [
-        'type' => 'Lawyer',
-        'salary' => [
-          'growth' => 1.5,
-          'start' => 35000,
-        ]
-      ],
-      [
-        'type' => 'Teacher',
-        'salary' => [
-          'growth' => 1.2,
-          'start' => 25000,
-        ]
-      ],
-      [
-        'type' => 'Other',
-        'salary' => [
-          'growth' => 1.1,
-          'start' => 27000,
-        ]
-      ],
-    ];
+class Calc {
+  public function getFormattedJobs() {
+    $jobs = new JobType;
+    $arr = [];
+    foreach($jobs->all() as $key => $job) {
+        $row = [
+            'type' => $job['name'],
+            'salary' => [
+                'growth' => $job['salaryGrowth'],
+                'start' => $job['startSalary']
+            ]
+        ];
+        $arr[] = $row;
+    }
+    return $arr;
   }
 
   public function getBasicSettings() {
-    return [
-      'inflation' => 2.8,
-      'womenSalaryRatio' => 0.9,
-      'jobTypes' => $this->getJobs()
-    ];
+    $settings = new Setting;
+    $arr = [];
+    foreach($settings->all() as $key => $setting) {
+        $arr[$setting['key']] = $setting['value'];
+    }
+
+    $arr['jobTypes'] = $this->getFormattedJobs();
+
+    return $arr;
   }
 }
