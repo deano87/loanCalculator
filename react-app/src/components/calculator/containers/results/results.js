@@ -76,10 +76,20 @@ export default class CalculatorGraph extends Component {
       let len = Object.keys(data).length;
       let prettify = {};
       let skip = 0;
+      let lastKey = 0;
+      let lastActualKey = 0;
+
       for(let key in data) {
+        lastActualKey = key;
         if(skip++ % parseInt(len/10) === 0) {
           prettify[key] = data[key];
+          lastKey = key;
         }
+      }
+
+      if(lastKey!=lastActualKey) {
+        delete prettify[lastKey];
+        prettify[lastActualKey] = data[lastActualKey];
       }
 
       let labels = Object.keys(prettify)

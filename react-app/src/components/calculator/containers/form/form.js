@@ -180,7 +180,7 @@ class CalculatorForm extends Component {
                     </FormGroup>
 
                     <FormGroup controlId="fcAvgInflation" validationState={this.state.valid['inflation']}>
-                      <ControlLabel>Average Inflation</ControlLabel>
+                      <ControlLabel>Average Inflation %</ControlLabel>
                       <FormControl
                         type="number"
                         name="inflation"
@@ -192,7 +192,7 @@ class CalculatorForm extends Component {
                     </FormGroup>
 
                     <FormGroup controlId="fcSalaryGrowth" validationState={this.state.valid['salaryGrowth']}>
-                      <ControlLabel>Salary Growth</ControlLabel>
+                      <ControlLabel>Salary Growth %</ControlLabel>
                       <FormControl
                         type="number"
                         name="salaryGrowth"

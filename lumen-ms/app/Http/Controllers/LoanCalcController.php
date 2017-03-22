@@ -48,7 +48,8 @@ class LoanCalcController extends Controller {
     }
 
     $salaries = [];
-    $salaryGrowth = 1 + (((float) $input["salaryGrowth"] + (float) $input['inflation']) / 100);
+    $inputSalGrowth = ((float) $input["salaryGrowth"] - 1) * 10;
+    $salaryGrowth = 1 + (($inputSalGrowth + (float) $input['inflation'] - 1) / 100);
 
     foreach(range(1, 30) as $year) {
       if($year === 1) {

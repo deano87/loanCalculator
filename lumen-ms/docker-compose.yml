@@ -31,19 +31,19 @@ php:
     DB_HOST: db
 
     DB_DATABASE: loanCalculator
-    DB_USERNAME: root
-    DB_PASSWORD: root
+    DB_USERNAME: user
+    DB_PASSWORD: password
     MEMCACHED_HOST: cache
     CACHE_DRIVER: memcached
 db:
   image: mysql
   ports:
-    - "3308:3306"
+    - "3306:3306"
   environment:
-    MYSQL_ROOT_PASSWORD: secret
-    MYSQL_DATABASE: lumen
-    MYSQL_USER: lumen
-    MYSQL_PASSWORD: secret
+    MYSQL_ROOT_PASSWORD: password
+    MYSQL_DATABASE: loanCalculator
+    MYSQL_USER: user
+    MYSQL_PASSWORD: password
 cache:
   image: memcached
   ports:

@@ -10,21 +10,21 @@ class Calc extends Model {
       [
         'type' => 'Lawyer',
         'salary' => [
-          'growth' => 2.5,
+          'growth' => 1.5,
           'start' => 35000,
         ]
       ],
       [
         'type' => 'Teacher',
         'salary' => [
-          'growth' => 2,
+          'growth' => 1.2,
           'start' => 25000,
         ]
       ],
       [
         'type' => 'Other',
         'salary' => [
-          'growth' => 1.5,
+          'growth' => 1.1,
           'start' => 27000,
         ]
       ],
