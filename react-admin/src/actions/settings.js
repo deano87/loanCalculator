@@ -11,8 +11,8 @@ export function getSettings() {
 }
 
 export const UPDATE_SETTING = 'UPDATE_SETTING';
-export function updateSetting(id, data) {
-    const request = axios.put(`${apiPath}loan-calc/settings/${id}`, data);
+export function updateSetting(data) {
+    const request = axios.put(`${apiPath}loan-calc/settings`, data);
 
     return {
         type: UPDATE_SETTING,

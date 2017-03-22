@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
 
 import Settings from './components/settings/settings';
+import Jobs from './components/jobs/jobs';
 import Scripts from './components/scripts/scripts';
 import reducers from './reducers';
 
@@ -23,12 +24,14 @@ ReactDOM.render(
     <div>
       <ul>
         <li><Link to="/">Settings</Link></li>
+        <li><Link to="/jobs">Jobs</Link></li>
         <li><Link to="/scripts">Scripts</Link></li>
       </ul>
 
       <hr/>
 
       <Route exact path="/" component={Settings}/>
+      <Route path="/jobs" component={Jobs}/>
       <Route path="/scripts" component={Scripts}/>
     </div>
   </Router>

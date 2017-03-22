@@ -13,12 +13,13 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-      Schema::create('settings', function($t) {
-        $t->increments('id');
-        $t->string('key');
-        $t->string('value');
-        $t->timestamps();
-      });
+        Schema::create('settings', function ($t) {
+            $t->increments('id');
+            $t->string('key');
+            $t->string('value');
+            $t->string('display_name')->nullable();
+            $t->timestamps();
+        });
     }
 
     /**
