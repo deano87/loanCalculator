@@ -2,8 +2,7 @@
 
 ### Video Preview
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/43Dp8ZtQv8o" frameborder="0" allowfullscreen></iframe>
-
+[![Youtube](https://img.youtube.com/vi/43Dp8ZtQv8o/0.jpg)](https://www.youtube.com/watch?v=43Dp8ZtQv8o)
 
 ### Moving Parts
 
