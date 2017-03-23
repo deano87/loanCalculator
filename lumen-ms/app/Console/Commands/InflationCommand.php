@@ -2,7 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Setting;
 use Illuminate\Console\Command;
+use phpQuery;
 
 class InflationCommand extends Command
 {
@@ -37,6 +39,13 @@ class InflationCommand extends Command
      */
     public function handle()
     {
-        echo 'inflation updated';
+        phpQuery::newDocumentFileHTML('http://www.tradingeconomics.com/united-kingdom/inflation-cpi');
+        $inflation = pq('#aspnetForm  div.container  div.row  div.col-lg-8.col-md-9  div:nth-child(12) div table td:nth-child(2):first');
+        $inflation = trim($inflation);
+        $inflation = rtrim($inflation, '</td>');
+        $inflation = ltrim($inflation, '<td>');
+
+        $setting = new Setting; // untouched model
+        $setting->where('key', 'inflation')->update(['value' => $inflation]);
     }
 }
