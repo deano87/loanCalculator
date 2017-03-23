@@ -2,7 +2,7 @@
 
 ### Video Preview
 
-[![Youtube](https://img.youtube.com/vi/43Dp8ZtQv8o/3.jpg)](https://www.youtube.com/watch?v=43Dp8ZtQv8o)
+[![Youtube](https://img.youtube.com/vi/43Dp8ZtQv8o/0.jpg)](https://www.youtube.com/watch?v=43Dp8ZtQv8o)
 
 ### Moving Parts
 
