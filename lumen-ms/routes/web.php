@@ -27,8 +27,8 @@ $app->group(['prefix' => 'api/v1'], function () use ($app) {
 
   $app->get('/loan-calc/jobs', 'JobTypesController@index');
   $app->post('/loan-calc/jobs', 'JobTypesController@store');
-  $app->put('/loan-calc/jobs/{$id}', 'JobTypesController@update');
-  $app->delete('/loan-calc/jobs/{$id}', 'JobTypesController@delete');
+  $app->put('/loan-calc/jobs/{id}', 'JobTypesController@update');
+  $app->delete('/loan-calc/jobs/{id}', 'JobTypesController@delete');
 
 
 });

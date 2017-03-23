@@ -25,18 +25,19 @@ class JobTypesController extends Controller
         return $this->jobTypes->all();
     }
 
-    public function insert()
+    public function store()
     {
         $input = $this->req->all();
         try {
             $jobType = new JobType;
-            $jobType->name = $input['name'];
+            $jobType->name = $input['title'];
             $jobType->startSalary = $input['startSalary'];
             $jobType->salaryGrowth = $input['salaryGrowth'];
             $jobType->save();
         } catch (\Exception $e) {
             Log::error($e->getMessage());
         }
+        return ['status' => 'ok'];
     }
 
     public function update($id)
@@ -44,13 +45,14 @@ class JobTypesController extends Controller
         $input = $this->req->all();
         try {
             $jobType = $this->jobTypes->findOrFail($id);
-            $jobType->name = $input['name'];
+            $jobType->name = $input['title'];
             $jobType->startSalary = $input['startSalary'];
             $jobType->salaryGrowth = $input['salaryGrowth'];
             $jobType->save();
         } catch (\Exception $e) {
             Log::error($e->getMessage());
         }
+        return ['status' => 'ok'];
     }
 
     public function delete($id)
@@ -62,6 +64,7 @@ class JobTypesController extends Controller
         } catch (\Exception $e) {
             Log::error($e->getMessage());
         }
+        return ['status' => 'ok'];
     }
 
 }

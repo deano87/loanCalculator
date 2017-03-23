@@ -11,7 +11,7 @@ export function getJobs() {
 }
 
 export const CREATE_JOB = 'CREATE_JOB';
-export function createJob(id, data) {
+export function createJob(data) {
     const request = axios.post(`${apiPath}loan-calc/jobs`, data);
 
     return {

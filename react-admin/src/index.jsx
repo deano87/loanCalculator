@@ -10,7 +10,7 @@ import Scripts from './components/scripts/scripts';
 import reducers from './reducers';
 
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
