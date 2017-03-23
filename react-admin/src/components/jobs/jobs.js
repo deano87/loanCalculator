@@ -14,7 +14,8 @@ class Jobs extends Component {
   constructor(props) {
       super(props)
       this.state = {
-        waitForNotification: false
+        waitForNotification: false,
+        loadOnce: true
       }
 
       this.props.getJobs();
@@ -117,6 +118,7 @@ class Jobs extends Component {
     let salaryGrowth = document.querySelector("[name='salaryGrowth[new]']").value;
 
     this.setState({waitForNotification: 'create'});
+    this.setState({loadOnce: true});
     this.props.createJob({title, startSalary, salaryGrowth});
   }
 
@@ -126,11 +128,13 @@ class Jobs extends Component {
     let salaryGrowth = document.querySelector("[name='salaryGrowth[" + id + "]']").value;
 
     this.setState({waitForNotification: 'save'});
+    this.setState({loadOnce: true});
     this.props.updateJob(id, {title, startSalary, salaryGrowth});
   }
 
   deleteRow(id) {
     this.setState({waitForNotification: 'delete'});
+    this.setState({loadOnce: true});
     this.props.deleteJob(id);
   }
 
@@ -150,7 +154,11 @@ class Jobs extends Component {
         break;
     }
 
-    this.props.getJobs();
+    if(!this.state.loadOnce) {
+      this.props.getJobs()
+      setTimeout(this.props.getJobs, 1000)
+      this.setState({loadOnce: true});
+    }
 
     return <Alert style={{cursor: "pointer"}} onClick={this.hideNotification.bind(this)}>
       {message}
