@@ -45,6 +45,7 @@
   - MySQL: 3306
 
 <br>
+
 ### What is missing
 
 Due to time limitations, no authentication was added to the admin panel (or the backend)
