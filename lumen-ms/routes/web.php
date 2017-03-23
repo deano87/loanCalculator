@@ -16,19 +16,23 @@ $app->get('/', function () use ($app) {
 });
 
 $app->group(['prefix' => 'api/v1'], function () use ($app) {
-  $app->get('/loan-calc', 'LoanCalcController@index');
-  $app->post('/loan-calc', 'LoanCalcController@calc');
+    $app->get('/loan-calc', 'LoanCalcController@index');
+    $app->post('/loan-calc', 'LoanCalcController@calc');
 
 
-  // @TODO: Apply admin middleware
+    // @TODO: Apply admin middleware
 
-  $app->get('/loan-calc/settings', 'SettingsController@index');
-  $app->put('/loan-calc/settings', 'SettingsController@update');
+    $app->get('/loan-calc/settings', 'SettingsController@index');
+    $app->put('/loan-calc/settings', 'SettingsController@update');
 
-  $app->get('/loan-calc/jobs', 'JobTypesController@index');
-  $app->post('/loan-calc/jobs', 'JobTypesController@store');
-  $app->put('/loan-calc/jobs/{id}', 'JobTypesController@update');
-  $app->delete('/loan-calc/jobs/{id}', 'JobTypesController@delete');
+    $app->get('/loan-calc/jobs', 'JobTypesController@index');
+    $app->post('/loan-calc/jobs', 'JobTypesController@store');
+    $app->put('/loan-calc/jobs/{id}', 'JobTypesController@update');
+    $app->delete('/loan-calc/jobs/{id}', 'JobTypesController@delete');
+
+
+    $app->get('/loan-calc/scripts', 'ScriptsController@index');
+    $app->post('/loan-calc/scripts/{name}', 'ScriptsController@run');
 
 
 });

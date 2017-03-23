@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { getStateSettings, updateStateSetting } from './settings'
+import { getScriptsReducer, runScriptReducer } from './scripts'
 import { getJobsReducer, createJobReducer, updateJobReducer, deleteJobReducer } from './jobs'
 
 const rootReducer = combineReducers({
@@ -8,7 +9,9 @@ const rootReducer = combineReducers({
   getJobsReducer,
   createJobReducer,
   updateJobReducer,
-  deleteJobReducer
+  deleteJobReducer,
+  getScriptsReducer,
+  runScriptReducer
 });
 
 export default rootReducer;

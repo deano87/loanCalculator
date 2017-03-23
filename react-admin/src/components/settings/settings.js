@@ -27,9 +27,9 @@ class Settings extends Component {
       <div className="container">
         <div className="row col-md-5">
           <form id="settings-form">
-            <legend>Calculator settings</legend>
-              {this.renderAlert()}
-              {this.renderSettings()}
+            <legend>Settings</legend>
+            {this.renderAlert()}
+            {this.renderSettings()}
 
             <ButtonToolbar>
               <Button bsStyle="primary" onClick={this.updateSettings.bind(this)}>
