@@ -11,7 +11,13 @@
 - Backend API
 - MySQL Database
 
-Each service runs in its own container, all of which are managed by Docker Compose
+### Technology used
+
+- Each service runs in its own container
+- Docker compose manages building/pulling the images and running the containers
+- The client and admin applications were built using ReactJS ES6, Redux, and React-Bootstrap, compiled using WebPack
+- Both applications are running on a nodeJS server
+- The backend API was developed using Lumen (A stripped down version of Laravel 5.4)
 
 ### Setup
 
@@ -21,22 +27,27 @@ Each service runs in its own container, all of which are managed by Docker Compo
         docker-compose build
         docker-compose up
 
-3. On first run migrate & seed the DB by running
+3. Make sure the Lumen project has a dotenv file in place
+
+4. On first run migrate & seed the DB by running
 
         docker exec -it lumen-php bash
         cd ..
         php artisan migrate
         php artisan db:seed
 
-4. Access Ports:
+  \* Make sure docker client is pointing to the docker machine
+
+5. Access Ports:
   - Client App: 8081
   - Admin App: 8082
   - Backend API: 9086
   - MySQL: 3306
 
+<br>
 ### What is missing
 
 Due to time limitations, no authentication was added to the admin panel (or the backend)
 Also, no input validation was added to the admin panel, nor UnitTesting.
 
-Side note: I am actively refactoring the code, as most of it was rushed.
+Side note: I am actively refactoring the code.
