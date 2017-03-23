@@ -15,7 +15,7 @@ class Jobs extends Component {
       super(props)
       this.state = {
         waitForNotification: false,
-        loadOnce: true
+        reloadMax: 5
       }
 
       this.props.getJobs();
@@ -117,8 +117,12 @@ class Jobs extends Component {
     let startSalary = document.querySelector("[name='startSalary[new]']").value;
     let salaryGrowth = document.querySelector("[name='salaryGrowth[new]']").value;
 
+    document.querySelector("[name='jobTitle[new]']").value = ''
+    document.querySelector("[name='startSalary[new]']").value = ''
+    document.querySelector("[name='salaryGrowth[new]']").value = ''
+
     this.setState({waitForNotification: 'create'});
-    this.setState({loadOnce: true});
+    this.setState({reloadMax: 5});
     this.props.createJob({title, startSalary, salaryGrowth});
   }
 
@@ -128,13 +132,13 @@ class Jobs extends Component {
     let salaryGrowth = document.querySelector("[name='salaryGrowth[" + id + "]']").value;
 
     this.setState({waitForNotification: 'save'});
-    this.setState({loadOnce: true});
+    this.setState({reloadMax: 5});
     this.props.updateJob(id, {title, startSalary, salaryGrowth});
   }
 
   deleteRow(id) {
     this.setState({waitForNotification: 'delete'});
-    this.setState({loadOnce: true});
+    this.setState({reloadMax: 5});
     this.props.deleteJob(id);
   }
 
@@ -154,11 +158,11 @@ class Jobs extends Component {
         break;
     }
 
-    if(!this.state.loadOnce) {
-      this.props.getJobs()
-      setTimeout(this.props.getJobs, 1000)
-      this.setState({loadOnce: true});
+    if(this.state.reloadMax > 0) {
+        this.props.getJobs()
+        this.setState({reloadMax: this.state.reloadMax-1})
     }
+
 
     return <Alert style={{cursor: "pointer"}} onClick={this.hideNotification.bind(this)}>
       {message}
