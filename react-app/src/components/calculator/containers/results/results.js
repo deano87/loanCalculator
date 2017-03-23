@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs';
 import './results.sass'
 
 function addCommas(nStr) {
+    nStr = (nStr*1).toFixed(2);
     nStr += '';
     let x = nStr.split('.');
     let x1 = x[0];
@@ -81,7 +82,9 @@ export default class CalculatorGraph extends Component {
 
       for(let key in data) {
         lastActualKey = key;
-        if(skip++ % parseInt(len/10) === 0) {
+        let spaceInt = parseInt(len/10);
+        spaceInt = (spaceInt>0)?spaceInt:1;
+        if(skip++ % spaceInt === 0) {
           prettify[key] = data[key];
           lastKey = key;
         }
