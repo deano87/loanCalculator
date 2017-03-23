@@ -12,6 +12,8 @@ class ResponseMiddleware {
     }
 
     $response->header('Access-Control-Allow-Headers', $request->header('Access-Control-Request-Headers'));
+
+    // @TODO: Limit access in production
     $response->header('Access-Control-Allow-Origin', '*');
     return $response;
   }
