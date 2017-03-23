@@ -9,6 +9,7 @@
 - Client application
 - Admin application
 - Backend API
+- MySQL Database
 
 Each service runs in its own container, all of which are managed by Docker Compose
 
@@ -16,12 +17,16 @@ Each service runs in its own container, all of which are managed by Docker Compo
 
 1. Make sure Docker and Docker Compose are installed on your OS
 2. Run
-    docker-compose build
-    docker-compose up
+
+        docker-compose build
+        docker-compose up
 
 3. On first run migrate & seed the DB by running
-    docker exec -it lumen-php bash
-    cd .. && php artisan migrate && php artisan db:seed
+
+        docker exec -it lumen-php bash
+        cd ..
+        php artisan migrate
+        php artisan db:seed
 
 4. Access Ports:
   - Client App: 8081
