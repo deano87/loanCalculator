@@ -5,11 +5,24 @@ nginx:
     - php
   ports:
     - "9086:9086"
+db:
+  image: mysql
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+    MYSQL_DATABASE: loanCalculator
+    MYSQL_USER: user
+    MYSQL_PASSWORD: password
+cache:
+  image: memcached
+  ports:
+    - "11311:11311"
 php:
-  build: ./
+  build: lumen-ms
   container_name: lumen-php
   volumes:
-    - ./:/app
+    - ./lumen-ms:/app
   working_dir: /app/public
   command: chown -R :www-data /app
   command: chown www-data:www-data -R ../storage/
@@ -35,16 +48,11 @@ php:
     DB_PASSWORD: password
     MEMCACHED_HOST: cache
     CACHE_DRIVER: memcached
-db:
-  image: mysql
+node_client:
+  build: react-app
   ports:
-    - "3306:3306"
-  environment:
-    MYSQL_ROOT_PASSWORD: password
-    MYSQL_DATABASE: loanCalculator
-    MYSQL_USER: user
-    MYSQL_PASSWORD: password
-cache:
-  image: memcached
+    - "8081:8000"
+node_admin:
+  build: react-admin
   ports:
-    - "11311:11311"
+    - "8082:8000"
